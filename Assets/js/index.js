@@ -46,5 +46,17 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// creating a function so prompt password
+function getPasswordOptions(){
+
+}
+//generate password with user input 
+function generatePassword(){
+
+}
+
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
