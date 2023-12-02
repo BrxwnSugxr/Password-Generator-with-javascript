@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector('#generate');
 
 // Creating arrays for character sets: special characters, numeric characters, lowercase characters, and uppercase characters
-const specialCharacters = [
+const specialChar = [
   '`',
   '~',
   '!',
@@ -28,12 +28,12 @@ const specialCharacters = [
   '?',
   '/',
 ];
-const numericCharacters = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const numericChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
-const lowerCasedCharacters = Array.from({ length: 26 }, (_, index) =>
+const LowLetterCharc = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(97 + index)
 );
-const upperCasedCharacters = Array.from({ length: 26 }, (_, index) =>
+const CapsLetterCharc = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(65 + index)
 );
 
@@ -82,22 +82,22 @@ function getPasswordOptions() {
 
 // Function to write the generated password to the #password input
 function writePassword() {
-  const passwordOptions = getPasswordOptions();
+  const pwdOptions = getPasswordOptions();
 
   // If no options are selected, return
-  if (!passwordOptions) return;
+  if (!pwdOptions) return;
 
   // Combining selected character sets into one array
   const allCharacters = [].concat(
-    passwordOptions.includesSpecial ? specialCharacters : [],
-    passwordOptions.includesNumeric ? numericCharacters : [],
-    passwordOptions.includesLowercase ? lowerCasedCharacters : [],
-    passwordOptions.includesUppercase ? upperCasedCharacters : []
+    pwdOptions.includesSpecial ? specialChar : [],
+    pwdOptions.includesNumeric ? numericChar : [],
+    pwdOptions.includesLowercase ? LowLetterCharc : [],
+    pwdOptions.includesUppercase ? CapsLetterCharc : []
   );
 
   // Generating the password using the selected options
   let password = '';
-  for (let i = 0; i < passwordOptions.length; i++) {
+  for (let i = 0; i < pwdOptions.length; i++) {
     password += generatePassword(allCharacters);
   }
 
