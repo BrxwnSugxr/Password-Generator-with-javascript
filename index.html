@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Generate</title>
-    <link rel="stylesheet" href="./Assets/css/rest.css" />
+    <link rel="stylesheet" href="./Assets/css/reset.css" />
     <link rel="stylesheet" href="./Assets/css/index.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
   </head>
@@ -25,10 +25,37 @@
           </div>
         </div>
         <div class="card-footer">
+          <label>
+            <input type="checkbox" id="specialCharCheckbox" /> Include Special
+            Characters
+          </label>
+          <label>
+            <input type="checkbox" id="numericCharCheckbox" /> Include Numeric
+            Characters
+          </label>
+          <label>
+            <input type="checkbox" id="lowercaseCharCheckbox" /> Include
+            Lowercase Characters
+          </label>
+          <label>
+            <input type="checkbox" id="uppercaseCharCheckbox" /> Include
+            Uppercase Characters
+          </label>
+          <br />
           <button id="generate" class="btn">Generate Password</button>
         </div>
+        <section class="instruction">
+          <h1>How Generate Password work</h1>
+          <br />
+          <ul>
+            <li>Select what type of characters you like for your password</li>
+            <li>generate password</li>
+            <li>a prompt box will appear on how many character</li>
+            <li>input number between 8 to 128</li>
+          </ul>
+        </section>
       </header>
     </div>
-    <script src="index.js"></script>
+    <script src="./Assets/js/index.js"></script>
   </body>
 </html>

@@ -29,11 +29,10 @@ const specialChar = [
   '/',
 ];
 const numericChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-
-const LowLetterCharc = Array.from({ length: 26 }, (_, index) =>
+const lowLetterCharc = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(97 + index)
 );
-const CapsLetterCharc = Array.from({ length: 26 }, (_, index) =>
+const capsLetterCharc = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(65 + index)
 );
 
@@ -51,20 +50,26 @@ function getPasswordOptions() {
     return null;
   }
 
-  // Confirming which character sets the user wants to include
-  const includesSpecial = confirm('OK for special characters');
-  const includesNumeric = confirm('OK for numeric characters');
-  const includesLowercase = confirm('OK for lowercase characters');
-  const includesUppercase = confirm('OK for uppercase characters');
+  // Checking the state of checkboxes
+  const includesSpecial = document.getElementById(
+    'specialCharCheckbox'
+  ).checked;
+  const includesNumeric = document.getElementById(
+    'numericCharCheckbox'
+  ).checked;
+  const includesLowercase = document.getElementById(
+    'lowercaseCharCheckbox'
+  ).checked;
+  const includesUppercase = document.getElementById(
+    'uppercaseCharCheckbox'
+  ).checked;
 
   // Validating that at least one character type is selected
   if (
-    !(
-      includesSpecial ||
-      includesNumeric ||
-      includesLowercase ||
-      includesUppercase
-    )
+    !includesSpecial &&
+    !includesNumeric &&
+    !includesLowercase &&
+    !includesUppercase
   ) {
     alert('Must select at least one character type');
     return null;
@@ -91,8 +96,8 @@ function writePassword() {
   const allCharacters = [].concat(
     pwdOptions.includesSpecial ? specialChar : [],
     pwdOptions.includesNumeric ? numericChar : [],
-    pwdOptions.includesLowercase ? LowLetterCharc : [],
-    pwdOptions.includesUppercase ? CapsLetterCharc : []
+    pwdOptions.includesLowercase ? lowLetterCharc : [],
+    pwdOptions.includesUppercase ? capsLetterCharc : []
   );
 
   // Generating the password using the selected options

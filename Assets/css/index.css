@@ -16,12 +16,18 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   background-color: #f9fbfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  text-align: center;
 }
 
 header {
@@ -80,6 +86,20 @@ header {
 button[disabled] {
   cursor: default;
   background: #e7e9eb;
+}
+
+/* Add these styles to center the list items in the instruction section */
+.instruction {
+  text-align: left;
+}
+.instruction ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.instruction li {
+  margin-bottom: 10px;
 }
 
 .float-right {
