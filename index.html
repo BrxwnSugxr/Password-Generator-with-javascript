@@ -9,6 +9,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
   </head>
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#about">about</a></li>
+          <li><a href="#Howto">how to generate</a></li>
+          <li><a href="#generatePwd">generate password</a></li>
+          <li><a href="#wdHistory">generate password</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="instruction">
+      <div class="card-header">
+        <h2>Instructions</h2>
+      </div>
+      <br />
+      <ul>
+        <li>
+          Click on a minimum of 3 checkboxes to allow your password to be
+          generated
+        </li>
+        <li>Click the "Generate Password" button</li>
+        <li>
+          A prompt box will appear asking how many characters (within 8-128)
+        </li>
+        <li>All passwords will be displayed in the history</li>
+      </ul>
+    </section>
     <div class="wrapper">
       <header>
         <div class="card">
@@ -44,18 +72,68 @@
           <br />
           <button id="generate" class="btn">Generate Password</button>
         </div>
-        <section class="instruction">
-          <h1>How Generate Password work</h1>
-          <br />
+
+        <div id="password-history-container">
+          <div class="card-header">
+            <h2>Password History</h2>
+          </div>
+          <div id="password-history"></div>
+          <button id="clear-history" class="btn">Clear History</button>
+        </div>
+        <section class="about">
+          <div class="card-header">
+            <h2>About The Application</h2>
+          </div>
+          <p>
+            The purpose of the password generator application is to assist users
+            in creating strong and secure passwords. Strong passwords are
+            crucial for protecting online accounts and sensitive information
+            from unauthorized access. The application allows users to customize
+            their passwords by selecting various options such as including
+            special characters, numeric characters, lowercase and uppercase
+            characters, and specifying the length of the password.
+          </p>
+          <p>
+            Here are the main features and benefits of the password generator:
+          </p>
           <ul>
-            <li>Select what type of characters you like for your password</li>
-            <li>generate password</li>
-            <li>a prompt box will appear on how many character</li>
-            <li>input number between 8 to 128</li>
+            <li>
+              <strong>Customization:</strong> Users can tailor their passwords
+              based on specific criteria, making them more versatile and
+              compatible with different security requirements.
+            </li>
+            <li>
+              <strong>Security:</strong> By including a mix of character types
+              and ensuring an adequate length, the generated passwords are
+              designed to be robust and resistant to various hacking methods.
+            </li>
+            <li>
+              <strong>Ease of Use:</strong> The application provides a
+              user-friendly interface with checkboxes and a "Generate Password"
+              button, making it accessible for individuals with varying
+              technical skills.
+            </li>
+            <li>
+              <strong>Password History:</strong> The application maintains a
+              history of generated passwords, allowing users to keep track of
+              their previous passwords. This feature can be helpful for users
+              who need to remember or rotate through different passwords.
+            </li>
+            <li>
+              <strong>Clear Instructions:</strong> The inclusion of clear
+              instructions in the user interface helps guide users on how to use
+              the password generator effectively.
+            </li>
           </ul>
+          <p>
+            Overall, the application aims to simplify the process of creating
+            strong and secure passwords, promoting better online security
+            practices among users.
+          </p>
         </section>
       </header>
     </div>
+    <footer></footer>
     <script src="./Assets/js/index.js"></script>
   </body>
 </html>
