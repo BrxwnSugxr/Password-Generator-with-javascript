@@ -12,15 +12,15 @@
     <header>
       <nav>
         <ul>
-          <li><a href="#about">about</a></li>
-          <li><a href="#Howto">how to generate</a></li>
+          <li><a href="#Howto">Insturuction</a></li>
           <li><a href="#generatePwd">generate password</a></li>
-          <li><a href="#wdHistory">generate password</a></li>
+          <li><a href="#pwHistory">generate password</a></li>
+          <li><a href="#about">about</a></li>
         </ul>
       </nav>
     </header>
 
-    <section class="instruction">
+    <section class="instruction" id="Howto">
       <div class="card-header">
         <h2>Instructions</h2>
       </div>
@@ -40,7 +40,7 @@
     <div class="wrapper">
       <header>
         <div class="card">
-          <div class="card-header">
+          <div class="card-header" id="generatePwd">
             <h2>Generate a password</h2>
           </div>
           <div class="card-body">
@@ -52,35 +52,37 @@
             ></textarea>
           </div>
         </div>
-        <div class="card-footer">
-          <label>
-            <input type="checkbox" id="specialCharCheckbox" /> Include Special
-            Characters
-          </label>
-          <label>
-            <input type="checkbox" id="numericCharCheckbox" /> Include Numeric
-            Characters
-          </label>
-          <label>
-            <input type="checkbox" id="lowercaseCharCheckbox" /> Include
-            Lowercase Characters
-          </label>
-          <label>
-            <input type="checkbox" id="uppercaseCharCheckbox" /> Include
-            Uppercase Characters
-          </label>
-          <br />
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-
-        <div id="password-history-container">
-          <div class="card-header">
-            <h2>Password History</h2>
+        <main>
+          <div class="card-footer">
+            <label>
+              <input type="checkbox" id="specialCharCheckbox" /> Include Special
+              Characters
+            </label>
+            <label>
+              <input type="checkbox" id="numericCharCheckbox" /> Include Numeric
+              Characters
+            </label>
+            <label>
+              <input type="checkbox" id="lowercaseCharCheckbox" /> Include
+              Lowercase Characters
+            </label>
+            <label>
+              <input type="checkbox" id="uppercaseCharCheckbox" /> Include
+              Uppercase Characters
+            </label>
+            <br />
+            <button id="generate" class="btn">Generate Password</button>
           </div>
-          <div id="password-history"></div>
-          <button id="clear-history" class="btn">Clear History</button>
-        </div>
-        <section class="about">
+
+          <div id="password-history-container">
+            <div class="card-header" id="pwHistory">
+              <h2>Password History</h2>
+            </div>
+            <div id="password-history"></div>
+            <button id="clear-history" class="btn">Clear History</button>
+          </div>
+        </main>
+        <section class="about" id="about">
           <div class="card-header">
             <h2>About The Application</h2>
           </div>
