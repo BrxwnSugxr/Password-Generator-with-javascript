@@ -1,58 +1,101 @@
+:root {
+  --primary-color: #008080;
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --accent-color: #e44d26;
+  --instruction-colour: #263238;
+  --font-style1: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  --font-style2: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  --font-style3: 'Unna', serif;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html,
-body,
-.wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  background-color: #f9fbfd;
+  font-family: var(--font-style2);
+  background-color: var(--background-color);
+  margin: 0;
 }
 
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--primary-color);
+  padding: 1.25rem;
+}
+
+nav a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  color: var(--background-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+
+nav ul a {
+  padding: 0.5rem;
+  color: var(--background-color);
+}
+
+nav ul a:hover {
+  text-decoration-line: underline;
 }
 
 header {
-  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--background-color);
   padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  text-align: center;
 }
 
-.card-header::after {
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+header p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+header ul {
+  list-style: none;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+header li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.card-header::after,
+.card-footer::before {
   content: ' ';
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  background: var(--background-color);
   height: 2px;
 }
 
 .card-body {
   min-height: 100px;
-}
-
-.card-footer {
-  text-align: center;
-}
-
-.card-footer::before {
-  content: ' ';
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
 }
 
 .card-footer::after {
@@ -61,17 +104,32 @@ header {
   clear: both;
 }
 
+#password-history-container {
+  margin-top: 20px;
+}
+
+#password-history {
+  padding: 10px;
+  border: 1px solid var(--instruction-colour);
+  background-color: var(--instruction-colour);
+  overflow-y: scroll;
+  max-height: 150px;
+}
+
+#clear-history {
+  margin-top: 10px;
+}
+
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--accent-color);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
-  color: hsl(0, 0%, 100%);
-  display: inline-block;
-  font-size: 22px;
+  color: var(--background-color);
+  font-size: 1rem;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
+  margin: 16px 0;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
@@ -79,29 +137,39 @@ header {
 
 button[disabled] {
   cursor: default;
-  background: #e7e9eb;
+  background: var(--background-color);
 }
 
-.float-right {
-  float: right;
+.instruction {
+  background-color: var(--instruction-colour);
+  color: var(--background-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.instruction h1 {
+  color: var(--instruction-colour);
+}
+
+.instruction ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.instruction li {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
 #password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  display: block;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
+  width: calc(100% - 30px);
+  padding: 15px;
+  font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px dashed var(--background-color);
   border-radius: 6px;
   resize: none;
   overflow: hidden;
