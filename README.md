@@ -68,7 +68,7 @@ SO THAT I can create a strong password that provides greater security
 
 Include a screenshot or multiple screenshots of your application to give users a visual representation of your project.
 
-![The Horiseon webpage includes a navigation bar, a header image, and cards with text and images at the bottom of the page.](./Assets/images/Password%20Generator.gif)
+![Step by step Instruction.](./Assets/images/Password%20Generator.gif)
 
 ## Deployed Application
 
