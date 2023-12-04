@@ -68,7 +68,7 @@ SO THAT I can create a strong password that provides greater security
 
 Include a screenshot or multiple screenshots of your application to give users a visual representation of your project.
 
-![Step by step Instruction.](./Assets/images/PasswordGenerator.gif)
+[Step by step Instruction.](./Assets/images/PasswordGenerator.gif)
 
 ## Deployed Application
 
