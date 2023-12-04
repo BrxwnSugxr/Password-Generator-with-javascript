@@ -1,8 +1,9 @@
-var generateBtn = document.querySelector('#generate');
-var clearHistoryBtn = document.querySelector('#clear-history');
+// Initialize DOM elements
+generateBtn = document.querySelector('#generate');
+clearHistoryBtn = document.querySelector('#clear-history');
 
-// Creating arrays for character sets: special characters, numeric characters, lowercase characters, and uppercase characters
-const specialChar = [
+// Create arrays for character sets
+specialChar = [
   '`',
   '~',
   '!',
@@ -28,57 +29,48 @@ const specialChar = [
   '?',
   '/',
 ];
-const numericChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-const lowLetterCharc = Array.from({ length: 26 }, (_, index) =>
+numericChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+lowLetterCharc = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(97 + index)
 );
-const capsLetterCharc = Array.from({ length: 26 }, (_, index) =>
+capsLetterCharc = Array.from({ length: 26 }, (_, index) =>
   String.fromCharCode(65 + index)
 );
 
-// Password history array
-var passwordHistory = [];
+// Initialize password history array
+passwordHistory = [];
 
-// Function to prompt the user for password options
+// Function to prompt user for password options
 function getPasswordOptions() {
-  // Getting the desired length of the password from the user
-  const length = parseInt(prompt('Password length between 8 and 128'), 10);
+  length = parseInt(prompt('Password length between 8 and 128'), 10);
 
-  // Validating the length input
+  // Validate length input
   if (Number.isNaN(length) || length < 8 || length > 128) {
     alert('Password length must be provided as a number between 8 and 128');
     return null;
   }
 
-  // Checking the state of checkboxes
-  const includesSpecial = document.getElementById(
-    'specialCharCheckbox'
-  ).checked;
-  const includesNumeric = document.getElementById(
-    'numericCharCheckbox'
-  ).checked;
-  const includesLowercase = document.getElementById(
-    'lowercaseCharCheckbox'
-  ).checked;
-  const includesUppercase = document.getElementById(
-    'uppercaseCharCheckbox'
-  ).checked;
+  // Check the state of checkboxes
+  includesSpecial = document.getElementById('specialCharCheckbox').checked;
+  includesNumeric = document.getElementById('numericCharCheckbox').checked;
+  includesLowercase = document.getElementById('lowercaseCharCheckbox').checked;
+  includesUppercase = document.getElementById('uppercaseCharCheckbox').checked;
 
-  // Counting the number of selected character types
-  const selectedTypes = [
+  // Count the number of selected character types
+  selectedTypes = [
     includesSpecial,
     includesNumeric,
     includesLowercase,
     includesUppercase,
   ].filter(Boolean);
 
-  // Validating that at least two character types are selected
+  // Validate that at least two character types are selected
   if (selectedTypes.length < 3) {
     alert('WARNING!! PLEASE SELECT 3+ CHECKBOX');
     return null;
   }
 
-  // Returning an object with the selected options
+  // Return an object with the selected options
   return {
     length,
     includesSpecial,
@@ -90,21 +82,21 @@ function getPasswordOptions() {
 
 // Function to write the generated password to the #password input
 function writePassword() {
-  const pwdOptions = getPasswordOptions();
+  pwdOptions = getPasswordOptions();
 
   // If no options are selected, return
   if (!pwdOptions) return;
 
-  // Combining selected character sets into one array
-  const allCharacters = [].concat(
+  // Combine selected character sets into one array
+  allCharacters = [].concat(
     pwdOptions.includesSpecial ? specialChar : [],
     pwdOptions.includesNumeric ? numericChar : [],
     pwdOptions.includesLowercase ? lowLetterCharc : [],
     pwdOptions.includesUppercase ? capsLetterCharc : []
   );
 
-  // Generating the password using the selected options
-  let password = '';
+  // Generate the password using the selected options
+  password = '';
   for (let i = 0; i < pwdOptions.length; i++) {
     password += generatePassword(allCharacters);
   }
@@ -113,14 +105,14 @@ function writePassword() {
   updatePasswordHistory(password);
   displayPasswordHistory();
 
-  // Displaying the generated password in the #password input field
-  var passwordText = document.querySelector('#password');
+  // Display the generated password in the #password input field
+  passwordText = document.querySelector('#password');
   passwordText.value = password;
 }
 
 // Function to generate a random character from the given array
 function generatePassword(arr) {
-  const randIndex = Math.floor(Math.random() * arr.length);
+  randIndex = Math.floor(Math.random() * arr.length);
   return arr[randIndex];
 }
 
@@ -131,20 +123,20 @@ function updatePasswordHistory(password) {
 
 // Function to display the password history
 function displayPasswordHistory() {
-  const historyContainer = document.getElementById('password-history');
+  historyContainer = document.getElementById('password-history');
   historyContainer.innerHTML = '';
 
   passwordHistory.forEach((password, index) => {
-    const passwordItem = document.createElement('div');
+    passwordItem = document.createElement('div');
     passwordItem.textContent = `Password ${index + 1}: ${password}`;
     historyContainer.appendChild(passwordItem);
   });
 }
 
-// Adding an event listener to the "generate" button to trigger the password generation
+// Event listener for the "generate" button to trigger password generation
 generateBtn.addEventListener('click', writePassword);
 
-// Adding an event listener to the "Clear History" button
+// Event listener for the "Clear History" button
 clearHistoryBtn.addEventListener('click', function () {
   // Clear the password history array
   passwordHistory = [];
