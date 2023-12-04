@@ -74,7 +74,7 @@ Include a screenshot or multiple screenshots of your application to give users a
 
 Link to the live deployment of your application. Make it easy for users to access and explore your project.
 
-[Deployed Application](https://brxwnsugxr.github.io/Horiseon-landingPage-Code-Refactoring-Repository/)
+[Deployed Application](https://brxwnsugxr.github.io/Password-Generator-with-javascript/)
 
 ## Installation
 
